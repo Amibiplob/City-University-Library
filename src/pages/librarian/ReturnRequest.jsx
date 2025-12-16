@@ -69,7 +69,7 @@ export default function ReturnRequest() {
                   <td>{req.bookId?.title || "N/A"}</td>
                   <td>{new Date(req.issueDate).toLocaleDateString()}</td>
                   <td>{new Date(req.dueDate).toLocaleDateString()}</td>
-                  <td><span >₹{req.fine}</span></td>
+                  <td><span >৳{req.fine}</span></td>
                   <td><span className="badge bg-warning">{req.status}</span></td>
                   <td>
                     <button

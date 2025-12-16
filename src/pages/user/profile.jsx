@@ -97,7 +97,7 @@ function ProfilePage() {
                       <td>{new Date(book.issueDate).toLocaleDateString()}</td>
                       <td>{new Date(book.dueDate).toLocaleDateString()}</td>
                       <td><span className="badge issued">{book.status}</span></td>
-                      <td>₹{book.fine}</td>
+                      <td>৳{book.fine}</td>
                       <td>
                         <button
                           className="return-btn"

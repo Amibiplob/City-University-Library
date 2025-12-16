@@ -181,7 +181,7 @@ function BookDetails() {
                             <FaRupeeSign className="meta-icon" />
                             <div>
                                 <span className="meta-label">Price</span>
-                                <span className="meta-value">₹{book.price}</span>
+                                <span className="meta-value">৳{book.price}</span>
                             </div>
                         </div>
 

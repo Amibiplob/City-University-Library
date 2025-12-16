@@ -107,7 +107,7 @@ const ViewBooks = () => {
               <p className="book-author">{book.author}</p>
               <p className="book-category">📚 {book.category}</p>
               <p className="book-isbn">🔢 ISBN: {book.isbn}</p>
-              <p className="book-price">💰 ₹{book.price}</p>
+              <p className="book-price">💰 ৳{book.price}</p>
             </div>
             <div className="card-footer text-center">
               <button className="btn edit-btn me-2" onClick={() => handleEdit(book)}>
@@ -161,7 +161,7 @@ const ViewBooks = () => {
                 <input type="text" className="form-control" name="isbn" value={formData.isbn} onChange={handleChange} />
               </div>
               <div className="col-md-6 mb-3">
-                <label className="form-label fw-bold">Price (₹)</label>
+                <label className="form-label fw-bold">Price (৳)</label>
                 <input type="number" className="form-control" name="price" value={formData.price} onChange={handleChange} />
               </div>
             </div>

@@ -164,6 +164,7 @@ const AdminDashboard = () => {
                 👥 Users
               </button>
             </li>
+            
             {role === "admin" && (
               <li className="admin-nav-item">
                 <button
@@ -176,6 +177,20 @@ const AdminDashboard = () => {
                 </button>
               </li>
             )}
+
+              {role === "admin" && (
+              <li className="admin-nav-item">
+                <button
+                  className={`admin-nav-btn ${
+                    selectedSection === "All Users" ? "active" : ""
+                  }`}
+                  onClick={() => handleSectionChange("All Users")}
+                >
+                  👥 All Users
+                </button>
+              </li>
+            )}
+
             <li className="admin-nav-item">
               <button
                 className={`admin-nav-btn ${
@@ -274,10 +289,12 @@ const AdminDashboard = () => {
               <div className="admin-table-container">
                 <table className="admin-table">
                   <thead>
-                    <tr>
-                      <th>ID</th>
+                    <tr>                      
+                      <th>ID No.</th>
                       <th>Name</th>
                       <th>Email</th>
+                      <th>Student ID</th>
+                      <th>Role</th>
                       
                     </tr>
                   </thead>
@@ -287,6 +304,8 @@ const AdminDashboard = () => {
                         <td>{index + 1}</td>
                         <td>{data.name}</td>
                         <td>{data.email}</td>
+                        <td>{data.studentId}</td>
+                        <td>{data.role}</td>
                         
                       </tr>
                     ))}
@@ -324,6 +343,38 @@ const AdminDashboard = () => {
             </>
           )}
 
+          {selectedSection === "All Users" && (
+            <>
+              <h2 className="admin-section-title">👥 All Users Management</h2>
+              <div className="admin-table-container">
+                <table className="admin-table">
+                  <thead>
+                    <tr>                      
+                      <th>ID No.</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Student ID</th>
+                      <th>Role</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[...lib, ...user].map((data, index) => (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{data.name}</td>
+                        <td>{data.email}</td>
+                        <td>{data.studentId}</td>
+                        <td>{data.role}</td>
+                        
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
+
           {selectedSection === "books" && (
             <>
               <h2 className="admin-section-title">📖 Books Inventory</h2>
@@ -336,7 +387,7 @@ const AdminDashboard = () => {
                       <th>Author</th>
                       <th>Category</th>
                       <th>Total Copies</th>
-                      <th>Available</th>
+                      <th>Price</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -347,7 +398,7 @@ const AdminDashboard = () => {
                         <td>{data.author}</td>
                         <td>{data.category}</td>
                         <td>{data.totalCopies}</td>
-                        <td>{data.availableCopies}</td>
+                        <td>৳{data.price}</td>
                       </tr>
                     ))}
                   </tbody>

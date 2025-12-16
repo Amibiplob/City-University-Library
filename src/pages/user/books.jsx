@@ -160,7 +160,7 @@ const Books = () => {
                     <h5 className="card-title">{book.title}</h5>
                     <p className="card-author">By {book.author}</p>
                     <div className="card-footer">
-                      <span className="card-price">₹{book.price}</span>
+                      <span className="card-price">৳{book.price}</span>
                       <div className="card-actions">
                         <button
                           className="btn btn-outline-primary btn-sm"
