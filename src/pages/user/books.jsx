@@ -151,7 +151,7 @@ const Books = () => {
                       className="card-image"
                       alt={book.title}
                       onError={(e) => {
-                        e.target.src = "hhttps://www.shutterstock.com/shutterstock/photos/1481369594/display_1500/stock-vector-no-image-vector-isolated-on-white-background-1481369594.jpg";
+                        e.target.src = "https://www.shutterstock.com/shutterstock/photos/1481369594/display_1500/stock-vector-no-image-vector-isolated-on-white-background-1481369594.jpg";
                       }}
                     />
                     <div className="book-badge">{book.category}</div>
