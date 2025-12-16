@@ -110,7 +110,7 @@ export default function ViewAllCategories() {
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.src =
-                            "https://via.placeholder.com/300x400?text=No+Image";
+                            "https://www.shutterstock.com/shutterstock/photos/1481369594/display_1500/stock-vector-no-image-vector-isolated-on-white-background-1481369594.jpg";
                         }}
                       />
                       <div className="d-flex flex-column flex-fill justify-content-between all-categories-card-body">
