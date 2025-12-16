@@ -97,8 +97,8 @@ export default function ViewAllCategories() {
             <div className="all-categories-grid">
               {[...new Set(filterBooks.map((book) => book.category))].map(
                 (category, index) => (
-                  <div key={index} className="all-categories-card-wrapper">
-                    <div className="all-categories-card shadow-sm">
+                  <div key={index} className="d-flex">
+                    <div className="d-flex flex-column all-categories-card shadow-sm">
                       <img
                         src={
                           filterBooks.find(
@@ -113,7 +113,7 @@ export default function ViewAllCategories() {
                             "https://via.placeholder.com/300x400?text=No+Image";
                         }}
                       />
-                      <div className="all-categories-card-body">
+                      <div className="d-flex flex-column flex-fill justify-content-between all-categories-card-body">
                         <h5 className="all-categories-card-title">
                           {category}
                         </h5>

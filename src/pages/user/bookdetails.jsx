@@ -4,6 +4,7 @@ import axios from "axios";
 import { Server_URL } from "../../utils/config";
 import { motion } from "framer-motion";
 import { FaBookOpen, FaUserEdit, FaTags, FaBarcode, FaRupeeSign, FaInfoCircle } from "react-icons/fa";
+import { TbCurrencyTaka } from "react-icons/tb";
 import { IoMdTime } from "react-icons/io";
 import { RiBookmarkLine } from "react-icons/ri";
 import "./bookdetails.css"
@@ -178,7 +179,7 @@ function BookDetails() {
                             </div>
                         </div>
                         <div className="meta-item">
-                            <FaRupeeSign className="meta-icon" />
+                            <TbCurrencyTaka  className="meta-icon" />
                             <div>
                                 <span className="meta-label">Price</span>
                                 <span className="meta-value">৳{book.price}</span>

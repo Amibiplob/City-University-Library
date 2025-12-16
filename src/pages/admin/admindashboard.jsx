@@ -4,6 +4,7 @@ import { Pie } from "react-chartjs-2";
 import "chart.js/auto";
 import { Server_URL } from "../../utils/config";
 import "./AdminDashboard.css";
+import { showErrorToast, showSuccessToast } from "../../utils/toasthelper";
 
 const AdminDashboard = () => {
   const [selectedSection, setSelectedSection] = useState("dashboard");
@@ -56,6 +57,36 @@ const AdminDashboard = () => {
       console.error("Error fetching users:", error);
     }
   }
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  const handleChangeRole = async (email, role) => {
+    try {
+      const url = Server_URL + "admin/changerole";
+      const authToken = localStorage.getItem("authToken");
+
+      // ✅ Decide new role based on current role
+      const newRole = role === "librarian" ? "user" : "librarian";
+
+      const response = await axios.patch(
+        url,
+        { email, role: newRole },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+
+      showSuccessToast("Role Updated Successfully");
+      console.log(response.data);
+      getUsers();
+    } catch (error) {
+      console.error(error.response?.data || error.message);
+      showErrorToast("Role Update Failed");
+    }
+  };
 
   async function getBooks() {
     try {
@@ -108,20 +139,20 @@ const AdminDashboard = () => {
 
   async function getLatestBooks() {
     try {
-      const url = Server_URL + 'books/new';
+      const url = Server_URL + "books/new";
       const result = await axios.get(url);
-      const {error, message} = result.data;
+      const { error, message } = result.data;
       if (error) {
-        alert(message);        
+        alert(message);
       } else {
         console.log("result");
         console.log(result);
-        const {books, totalBooks} = result.data;
+        const { books, totalBooks } = result.data;
         setLatestBooks(books);
       }
     } catch (error) {
-      console.error("Error fetching books:", error);            
-    }    
+      console.error("Error fetching books:", error);
+    }
   }
 
   const handleSectionChange = (section) => {
@@ -164,7 +195,7 @@ const AdminDashboard = () => {
                 👥 Users
               </button>
             </li>
-            
+
             {role === "admin" && (
               <li className="admin-nav-item">
                 <button
@@ -178,7 +209,7 @@ const AdminDashboard = () => {
               </li>
             )}
 
-              {role === "admin" && (
+            {role === "admin" && (
               <li className="admin-nav-item">
                 <button
                   className={`admin-nav-btn ${
@@ -273,7 +304,8 @@ const AdminDashboard = () => {
                       <div key={index} className="activity-item">
                         <div className="activity-icon">📚</div>
                         <div className="activity-text">
-                          <strong>{book.title}</strong> added by {book.addedBy?.name} 
+                          <strong>{book.title}</strong> added by{" "}
+                          {book.addedBy?.name}
                         </div>
                       </div>
                     ))}
@@ -289,13 +321,12 @@ const AdminDashboard = () => {
               <div className="admin-table-container">
                 <table className="admin-table">
                   <thead>
-                    <tr>                      
+                    <tr>
                       <th>ID No.</th>
                       <th>Name</th>
                       <th>Email</th>
                       <th>Student ID</th>
                       <th>Role</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -306,7 +337,6 @@ const AdminDashboard = () => {
                         <td>{data.email}</td>
                         <td>{data.studentId}</td>
                         <td>{data.role}</td>
-                        
                       </tr>
                     ))}
                   </tbody>
@@ -349,13 +379,13 @@ const AdminDashboard = () => {
               <div className="admin-table-container">
                 <table className="admin-table">
                   <thead>
-                    <tr>                      
+                    <tr>
                       <th>ID No.</th>
                       <th>Name</th>
                       <th>Email</th>
                       <th>Student ID</th>
                       <th>Role</th>
-                      
+                      <th>Change Role</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -364,9 +394,23 @@ const AdminDashboard = () => {
                         <td>{index + 1}</td>
                         <td>{data.name}</td>
                         <td>{data.email}</td>
-                        <td>{data.studentId}</td>
+                        <td>
+                          {data?.studentId
+                            ? data?.studentId
+                            : "Create By Admin"}
+                        </td>
                         <td>{data.role}</td>
-                        
+                        <td>
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary"
+                            onClick={() =>
+                              handleChangeRole(data.email, data.role)
+                            }
+                          >
+                            Change Role
+                          </button>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
