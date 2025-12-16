@@ -36,6 +36,15 @@ export default function Register(){
             <input type="text" className="form-control" {...register("name", { required: "Name is required" })} />
             {errors.name && <p className="text-danger">{errors.name.message}</p>}
           </div>
+
+
+          <div className="mb-3">
+            <label className="form-label">Student ID Number</label>
+            <input type="number" className="form-control" {...register("studentId", { required: "Student ID Number is required" })} />
+            {errors.studentId && <p className="text-danger">{errors.studentId.message}</p>}
+          </div>
+
+
   
           <div className="mb-3">
             <label className="form-label">Email</label>
@@ -48,20 +57,6 @@ export default function Register(){
             <label className="form-label">Password</label>
             <input type="password" className="form-control" {...register("password", { required: "Password is required" })} />
             {errors.password && <p className="text-danger">{errors.password.message}</p>}
-          </div>
-  
-     
-          <div className="mb-3">
-            <label className="form-label">Stream</label>
-            <input type="text" className="form-control" {...register("stream", { required: "Stream is required" })} />
-            {errors.stream && <p className="text-danger">{errors.stream.message}</p>}
-          </div>
-  
-       
-          <div className="mb-3">
-            <label className="form-label">Year</label>
-            <input type="number" className="form-control" {...register("year", { required: "Year is required" })} />
-            {errors.year && <p className="text-danger">{errors.year.message}</p>}
           </div>
   
     

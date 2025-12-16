@@ -278,7 +278,7 @@ const AdminDashboard = () => {
                       <th>ID</th>
                       <th>Name</th>
                       <th>Email</th>
-                      <th>Stream</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
@@ -287,7 +287,7 @@ const AdminDashboard = () => {
                         <td>{index + 1}</td>
                         <td>{data.name}</td>
                         <td>{data.email}</td>
-                        <td>{data.stream}</td>
+                        
                       </tr>
                     ))}
                   </tbody>

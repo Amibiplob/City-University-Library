@@ -91,7 +91,7 @@ const ViewBooks = () => {
       <h2 className="admin-book-heading">📖 Manage Library Books</h2>
       <div className="container">
   <div className="row">
-    {books.length > 0 ? (
+    {books?.length > 0 ? (
       books.map((book, index) => (
         <div key={book._id} className="col-lg-3 col-md-4 col-sm-6 mb-4">
           <div className="card book-card">

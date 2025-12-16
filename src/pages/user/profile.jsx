@@ -66,8 +66,10 @@ function ProfilePage() {
     <div className="profile-page">
       <div className="profile-container">
         <div className="profile-info card">
-          <h1>{user.name}</h1>
+          <h1>Welcome Back ,</h1>
+          <h3>{user.name}</h3>
           <p><strong>Email:</strong> {user.email}</p>
+          <p><strong>Student Id:</strong> {user.studentId}</p>
           <p><strong>Role:</strong> {user.role}</p>
         </div>
 

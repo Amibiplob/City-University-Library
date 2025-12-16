@@ -87,7 +87,7 @@ const AboutUs = () => {
           <h2 className="about-cta-title">Experience Our Library</h2>
           <p className="about-cta-subtitle">Visit us today and discover all the resources we have to offer</p>
           <div className="about-cta-buttons">
-            <Link to="/aboutus" className="about-btn about-btn-primary">
+            <Link to="https://maps.app.goo.gl/2kmszPrLDqdCaXuAA" className="about-btn about-btn-primary" target='blanked'>
               <FiMapPin className="about-icon" /> Visit Us
             </Link>
             <Link to="/aboutus" className="about-btn about-btn-secondary">

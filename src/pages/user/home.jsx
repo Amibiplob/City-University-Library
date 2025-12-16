@@ -194,14 +194,8 @@ export default function Home() {
             <div className="hours-card">
               <FiClock className="hours-icon" />
               <h3>Regular Hours</h3>
-              <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
-              <p>Saturday: 10:00 AM - 5:00 PM</p>
-              <p>Sunday: Closed</p>
-            </div>
-            <div className="hours-card">
-              <FiCalendar className="hours-icon" />
-              <h3>Exam Period</h3>
-              <p>Monday - Sunday: 7:00 AM - 11:00 PM</p>
+              <p>Fri-Tue: 9:00 AM - 4:00 PM</p>
+              <p>Wednesday - Thursday: Closed</p>
             </div>
           </div>
         </div>
